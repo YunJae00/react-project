@@ -23,7 +23,7 @@ export default function UserpageComponent(){
     function ImageComponent() {
         return(
             <div>
-                <img className="img-d" src="/d.png"></img>
+                <img className="img-d" src="/bok-b.png"></img>
             </div>
         )
     }
@@ -31,7 +31,9 @@ export default function UserpageComponent(){
     function ButtonComponent(){
         return(
             <div>
-                <button className="light-button">복주머니 채워주기</button>
+                <button className="light-button">
+                    <p className="button-text">복주머니 채워주기</p>
+                </button>
             </div>
         )
     }

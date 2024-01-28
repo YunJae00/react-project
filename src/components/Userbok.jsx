@@ -1,4 +1,4 @@
-export default function MypageComponent(){
+export default function UserbokComponent(){
     
     function TitleComponent() {
         return (
@@ -12,12 +12,6 @@ export default function MypageComponent(){
             </div>
           </div>
         );
-    }
-
-    function LetterCount() {
-        return (
-            <p className="letterCountText">0개의 쪽지</p>
-        )
     }
 
     function ImageComponent() {
@@ -38,26 +32,12 @@ export default function MypageComponent(){
         )
     }
 
-    function ButtonComponent2(){
-        return(
-            <div>
-                <button className="light-button">
-                    <p className="button-text">내 링크 복사하기</p>
-                </button>
-            </div>
-        )
-    }
-
-    
-
     return(
         <div className="container">
             <div className="inner-container">
                 <TitleComponent />
-                <LetterCount/>
                 <ImageComponent />
                 <ButtonComponent />
-                <ButtonComponent2 />
             </div>
         </div>
     )

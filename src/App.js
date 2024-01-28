@@ -5,6 +5,9 @@ import LoginComponent from './components/Login';
 import SignupComponent from './components/Signup';
 import UserpageComponent from './components/Userpage';
 import MypageComponent from './components/Mypage';
+import MybokComponent from './components/Mybok';
+import UserbokComponent from './components/Userbok';
+import WriteLetterComponent from './components/WriteLetter';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <SignupComponent/>
         <UserpageComponent/>
         <MypageComponent/>
+        <MybokComponent/>
+        <UserbokComponent/>
+        <WriteLetterComponent/>
     </div>
   );
 }

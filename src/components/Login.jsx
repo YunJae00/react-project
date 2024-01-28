@@ -29,7 +29,29 @@ export default function LoginComponent(){
     function ButtonComponent(){
         return(
             <div>
-                <button className="light-button">Login</button>
+                <button className="light-button">
+                    <p className="button-text">Login</p>
+                </button>
+            </div>
+        )
+    }
+
+    function ButtonComponent2(){
+        return(
+            <div>
+                <button className="light-button">
+                <p className="button-text">Login with Kakao</p>
+                </button>
+            </div>
+        )
+    }
+
+    function ButtonComponent3(){
+        return(
+            <div>
+                <button className="dark-button">
+                <p className="button-text">Signup</p>
+                </button>
             </div>
         )
     }
@@ -41,7 +63,8 @@ export default function LoginComponent(){
                 <IdContainer/>
                 <PasswordContainer/>
                 <ButtonComponent />
-                <ButtonComponent />
+                <ButtonComponent2 />
+                <ButtonComponent3 />
             </div>
         </div>
     )

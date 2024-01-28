@@ -50,7 +50,9 @@ export default function SignupComponent(){
     function ButtonComponent(){
         return(
             <div>
-                <button className="light-button">Register</button>
+                <button className="light-button">
+                    <p className="button-text">Register</p>
+                </button>
             </div>
         )
     }
