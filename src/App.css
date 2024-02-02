@@ -266,8 +266,10 @@
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
-  padding-left: 33%;
-  padding-right: 33%;
+  width: 280px;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .arrow{

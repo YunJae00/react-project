@@ -13,9 +13,7 @@ export default function BokwithLetterComponent(){
     function ImageComponent() {
         return(
             <div>
-                <div>
                 <img className="letter" src="/쪽지8.png"></img>
-                </div>
                 <img className="bok-L" src="/bok-b.png"></img>
             </div>
         )
@@ -23,9 +21,11 @@ export default function BokwithLetterComponent(){
 
     function ArrowComponent() {
         return(
-            <div className="arrow-container">
-                <img className="arrow" src="/왼쪽 화살표.png"></img>
-                <img className="arrow" src="/오른쪽 화살표.png"></img>
+            <div>
+                <div className="arrow-container">
+                    <img className="arrow" src="/왼쪽 화살표.png"></img>
+                    <img className="arrow" src="/오른쪽 화살표.png"></img>
+                </div>
             </div>
         )
     }
