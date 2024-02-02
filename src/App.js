@@ -8,6 +8,8 @@ import MypageComponent from './components/Mypage';
 import MybokComponent from './components/Mybok';
 import UserbokComponent from './components/Userbok';
 import WriteLetterComponent from './components/WriteLetter';
+import BokwithLetterComponent from './components/BokwithLetter';
+import ChooseLetter from './components/ChooseLetter';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <MybokComponent/>
         <UserbokComponent/>
         <WriteLetterComponent/>
+        <BokwithLetterComponent/>
+        <ChooseLetter/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export default function UserpageComponent(){
+export default function BokwithLetterComponent(){
     
     function TitleComponent() {
         return (
@@ -10,16 +10,22 @@ export default function UserpageComponent(){
         );
     }
 
-    function LetterCount() {
-        return (
-            <p className="letterCountText">0개의 쪽지</p>
-        )
-    }
-
     function ImageComponent() {
         return(
             <div>
-                <img className="img-d" src="/bok-b.png"></img>
+                <div>
+                <img className="letter" src="/쪽지8.png"></img>
+                </div>
+                <img className="bok-L" src="/bok-b.png"></img>
+            </div>
+        )
+    }
+
+    function ArrowComponent() {
+        return(
+            <div className="arrow-container">
+                <img className="arrow" src="/왼쪽 화살표.png"></img>
+                <img className="arrow" src="/오른쪽 화살표.png"></img>
             </div>
         )
     }
@@ -34,22 +40,12 @@ export default function UserpageComponent(){
         )
     }
 
-
-
-    function InputComponent(){
-        return(
-            <div>
-
-            </div>
-        )
-    }
-
     return(
         <div className="container">
             <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
                 <TitleComponent />
-                <LetterCount/>
-                <ImageComponent />
+                <ImageComponent/>
+                <ArrowComponent/>
                 <ButtonComponent />
             </div>
         </div>

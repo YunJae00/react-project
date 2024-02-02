@@ -3,13 +3,9 @@ export default function UserbokComponent(){
     function TitleComponent() {
         return (
           <div className="titleContainer">
-            <div className="titleSection">
-              <p className="greenText">권십재의</p>
-              <span className="spacing"></span>
-            </div>
-            <div className="titleSection">
-              <p className="titleText">복주머니</p>
-            </div>
+            <p className="greenText">권십재의</p>  
+            <span className="spacing"></span>
+            <p className="titleText">복주머니</p> 
           </div>
         );
     }
@@ -34,7 +30,7 @@ export default function UserbokComponent(){
 
     return(
         <div className="container">
-            <div className="inner-container">
+            <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
                 <TitleComponent />
                 <ImageComponent />
                 <ButtonComponent />
