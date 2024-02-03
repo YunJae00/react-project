@@ -1,20 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import HelloComponent from './components/HelloComponents';
-import LoginComponent from './components/Login';
-import SignupComponent from './components/Signup';
-import UserpageComponent from './components/Userpage';
-import MypageComponent from './components/Mypage';
-import MybokComponent from './components/Mybok';
-import UserbokComponent from './components/Userbok';
-import WriteLetterComponent from './components/WriteLetter';
-import BokwithLetterComponent from './components/BokwithLetter';
-import ChooseLetter from './components/ChooseLetter';
+import HelloComponent from './components2/HelloComponents';
+import LoginComponent from './components2/Login';
+import SignupComponent from './components2/Signup';
+import UserpageComponent from './components2/Userpage';
+import MypageComponent from './components2/Mypage';
+import MybokComponent from './components2/Mybok';
+import UserbokComponent from './components2/Userbok';
+import WriteLetterComponent from './components2/WriteLetter';
+import BokwithLetterComponent from './components2/BokwithLetter';
+import ChooseLetter from './components2/ChooseLetter';
+import MainComponent from './components/MainComponent';
 
 function App() {
   return (
     <div className="App">
-        <HelloComponent/>
+        {/* <HelloComponent/>
         <LoginComponent/>
         <SignupComponent/>
         <UserpageComponent/>
@@ -23,7 +23,8 @@ function App() {
         <UserbokComponent/>
         <WriteLetterComponent/>
         <BokwithLetterComponent/>
-        <ChooseLetter/>
+        <ChooseLetter/> */}
+        <MainComponent />
     </div>
   );
 }
