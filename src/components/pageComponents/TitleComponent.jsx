@@ -1,4 +1,18 @@
+import { useNavigate } from "react-router-dom"
+
 export default function TitleComponent() {
+
+    const navigate = useNavigate()
+
+    function handelLogin(){
+        navigate('/auth/login')
+    }
+    function handelLoginKakao(){
+        navigate('/auth/login')
+    }
+    function handelSignUp(){
+        navigate('/auth/register')
+    }
 
     return(
         <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
@@ -13,17 +27,17 @@ export default function TitleComponent() {
                 <img className="img-d" src="/bok-a.png"></img>
             </div>
             <div>
-                <button className="light-button">
+                <button className="light-button" type="button" name="login" onClick={handelLogin}>
                 <p className="button-text">Login</p>
                 </button>
             </div>
             <div>
-                <button className="light-button">
+                <button className="light-button" type="button" name="kakao-login" onClick={handelLoginKakao}>
                 <p className="button-text">Login with Kakao</p>
                 </button>
             </div>
             <div>
-                <button className="dark-button">
+                <button className="dark-button" type="button" name="signup" onClick={handelSignUp}>
                 <p className="button-text">Signup</p>
                 </button>
             </div>

@@ -1,18 +1,47 @@
+import { useState } from "react";
+import { useAuth } from "../../security/AuthContext"
+import { useNavigate } from "react-router-dom"
+
 export default function LoginComponent(){
+
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+
+    function handleUsernameChange(event) {
+        setUsername(event.target.value);
+    }
+
+    function handlePasswordChange(event) {
+        setPassword(event.target.value);
+    }
+
+    const authContext = useAuth()
+    const navigate = useNavigate()
+
+    async function handleLogin(){
+        const loginSuccess = await authContext.login(username, password)
+
+        if(loginSuccess){
+            navigate('/user/mybok')
+        }
+        else{
+            console.log('login fail')
+        }
+    }
 
     return(
         <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
             <p className="login_element">Login</p>
             <div className="Id_container">
                 <p className="Id_element">ID</p>
-                <input className="Id_box"/>
+                <input className="Id_box" name="usename" value={username} onChange={handleUsernameChange}/>
             </div>
             <div className="Id_container">
                 <p className="Id_element">Password</p>
-                <input className="Id_box"/>
+                <input className="Id_box" name="password" value={password} onChange={handlePasswordChange}/>
             </div>
             <div>
-                <button className="light-button">
+                <button className="light-button" type="button" name="login" onClick={handleLogin}>
                     <p className="button-text">Login</p>
                 </button>
             </div>

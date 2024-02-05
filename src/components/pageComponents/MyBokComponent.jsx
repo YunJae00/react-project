@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useAuth } from "../../security/AuthContext";
 
 export default function MyBokComponent(){
 
-    const [letterCount, setLetterCount] = useState(0);
+    const [letterCount, setLetterCount] = useState(0)
+
+    const authContext = useAuth()
 
     return(
         <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
