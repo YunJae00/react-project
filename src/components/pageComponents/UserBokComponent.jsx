@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 
-export default function UserbokComponent(){
+export default function UserBokComponent(){
 
     const {username} = useParams();
     const [letterCount, setLetterCount] = useState(0);

@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom"
 
 export default function LoginComponent(){
 
-    const [username, setUsername] = useState()
+    const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    function handleUsernameChange(event) {
-        setUsername(event.target.value);
+    function handleEmailChange(event) {
+        setEmail(event.target.value);
     }
 
     function handlePasswordChange(event) {
@@ -19,7 +19,7 @@ export default function LoginComponent(){
     const navigate = useNavigate()
 
     async function handleLogin(){
-        const loginSuccess = await authContext.login(username, password)
+        const loginSuccess = await authContext.login(email, password)
 
         if(loginSuccess){
             navigate('/user/mybok')
@@ -33,8 +33,8 @@ export default function LoginComponent(){
         <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
             <p className="login_element">Login</p>
             <div className="Id_container">
-                <p className="Id_element">ID</p>
-                <input className="Id_box" name="usename" value={username} onChange={handleUsernameChange}/>
+                <p className="Id_element">Email</p>
+                <input className="Id_box" name="usename" value={email} onChange={handleEmailChange}/>
             </div>
             <div className="Id_container">
                 <p className="Id_element">Password</p>

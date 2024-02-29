@@ -11,8 +11,8 @@ import ErrorComponent from './pageComponents/ErrorComponent';
 import AuthProvider, { useAuth } from '../security/AuthContext';
 
 function AuthenticateRoute({ children }) {
-    const authContext = useAuth()
-    if (authContext.isAuthenticated) {
+    const storedToken = localStorage.getItem("isLoggedIn");
+    if (storedToken === "1") {
         return (
             children
         )

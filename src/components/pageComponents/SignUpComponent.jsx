@@ -1,36 +1,34 @@
 import { useEffect, useState } from "react"
-import { executeCheckUsernameService, executeRegisterUserService } from "../../api/AuthenticationApiService";
+import { executeCheckEmailService, executeCheckUsernameService, executeRegisterUserService } from "../../api/AuthenticationApiService";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpComponent() {
 
     const navigate = useNavigate()
 
-    const [username, setUsername] = useState()
+    const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [passwordConfirm, setPasswordConfirm] = useState()
-    const [email, setEmail] = useState()
-    const [name, setName] = useState()
+    const [nickname, setNickname] = useState()
 
     const [registerConfirm, setRegisterConfirm] = useState(false)
 
-    const [idCountSuccess, setIdCountSuccess] = useState(false)
-    const [idSuccess, setIdSuccessMessage] = useState(false)
-    const [idFail, setIdFailMessage] = useState(false)
+    const [emailSuccess, setEmailSuccessMessage] = useState(false)
+    const [emailFail, setEmailFailMessage] = useState(false)
 
     const [passwordSuccess, setPasswordSuccessMessage] = useState(false)
     const [passwordFail, setPasswordFailMessage] = useState(false)
 
     useEffect(() => {
-        if (idSuccess && passwordSuccess) {
+        if (emailSuccess && passwordSuccess) {
             setRegisterConfirm(true);
         } else {
             setRegisterConfirm(false);
         }
-    }, [idSuccess, passwordSuccess]);
+    }, [emailSuccess, passwordSuccess]);
 
-    function handleUsernameChange(event) {
-        setUsername(event.target.value)
+    function handleEmailChange(event) {
+        setEmail(event.target.value)
     }
     function handlePasswordChange(event) {
         setPassword(event.target.value)
@@ -38,50 +36,41 @@ export default function SignUpComponent() {
     function handlePasswordConfirmChange(event) {
         setPasswordConfirm(event.target.value)
     }
-    function handleEmailChange(event) {
-        setEmail(event.target.value)
-    }
-    function handleNameChange(event) {
-        setName(event.target.value)
+    function handleNicknameChange(event) {
+        setNickname(event.target.value)
     }
 
-    async function checkUsername(username) {
+    async function checkEmail(Email) {
+        const email = {
+            "email" : Email
+        }
         try {
-            const response = await executeCheckUsernameService(username)
-            if (response.status === 200) {
-                return true
-            } else {
+            const response = await executeCheckEmailService(email)
+            if (response.data === true) {
                 return false
+            } else {
+                return true
             }
         } catch (error) {
-            return false;
+            return true;
         }
     }
 
-    async function idCheck() {
-        if (username.length < 5) {
-            setIdCountSuccess(true)
-            setIdSuccessMessage(false)
-            setIdFailMessage(false)
-        } else {
-            try {
-                const isUsernameAvailable = await checkUsername(username);
+    async function emailCheck() {
+        try {
+            const isEmailAvailable = await checkEmail(email);
 
-                if (isUsernameAvailable) {
-                    setIdCountSuccess(false)
-                    setIdSuccessMessage(true)
-                    setIdFailMessage(false)
-                } else {
-                    setIdCountSuccess(false)
-                    setIdSuccessMessage(false)
-                    setIdFailMessage(true)
-                }
-            } catch (error) {
-                console.error('Error checking username:', error)
-                setIdCountSuccess(false)
-                setIdSuccessMessage(false)
-                setIdFailMessage(true)
+            if (isEmailAvailable) {
+                setEmailSuccessMessage(true)
+                setEmailFailMessage(false)
+            } else {
+                setEmailSuccessMessage(false)
+                setEmailFailMessage(true)
             }
+        } catch (error) {
+            console.error('Error checking username:', error)
+            setEmailSuccessMessage(false)
+            setEmailFailMessage(true)
         }
     }
 
@@ -98,9 +87,9 @@ export default function SignUpComponent() {
 
     async function registerUser() {
         const user = {
-            "username": username,
+            "email": email,
             "password": password,
-            "email": email
+            "nickname": nickname
         }
         await executeRegisterUserService(user)
             .then(response => {
@@ -115,13 +104,12 @@ export default function SignUpComponent() {
         <div className="inner-container" style={{ backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")' }}>
             <p className="login_element">Signup</p>
             <div className="Id_container">
-                <p className="Id_element">ID</p>
-                <input className="Id_box" type="text" name="username" value={username} onChange={handleUsernameChange} />
+                <p className="Id_element">Email</p>
+                <input className="Id_box" type="text" name="email" value={email} onChange={handleEmailChange} />
                 <div>
-                    <button type="button" name="idCheck" onClick={idCheck}>ID 중복 확인</button>
-                    {idCountSuccess && <span>5자 이상 입력해주세요</span>}
-                    {idSuccess && <span>사용가능한 아이디 입니다</span>}
-                    {idFail && <span>사용중인 아이디 입니다</span>}
+                    <button type="button" name="emailCheck" onClick={emailCheck}>Email 중복 확인</button>
+                    {emailSuccess && <span>사용가능한 email 입니다</span>}
+                    {emailFail && <span>사용중인 email 입니다</span>}
                 </div>
             </div>
             <div className="Id_container">
@@ -138,13 +126,9 @@ export default function SignUpComponent() {
                 </div>
             </div>
             <div className="Id_container">
-                <p className="Id_element">Email</p>
-                <input className="Id_box" type="text" name="email" value={email} onChange={handleEmailChange} />
+                <p className="Id_element">NickName</p>
+                <input className="Id_box" type="text" name="nickname" value={nickname} onChange={handleNicknameChange} />
             </div>
-            {/* <div className="Id_container">
-                <p className="Id_element">Name</p>
-                <input className="Id_box" type="text" name="name" value={name} onChange={handleNameChange} />
-            </div> */}
             {registerConfirm &&
                 <div>
                     <button className="light-button" type="button" name="register" onClick={registerUser}>
