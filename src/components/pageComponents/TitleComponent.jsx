@@ -15,7 +15,7 @@ export default function TitleComponent() {
     }
 
     return(
-        <div className="inner-container" style={{backgroundImage: 'url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220127133732902351.jpg")'}}>
+        <div className="inner-container" style={{backgroundImage: 'url("./public/background.jpg")'}}>
             <div className="titleContainer"> 
                 <p className="titleText">내 복주머니를</p>
                 <span className="spacing"></span>

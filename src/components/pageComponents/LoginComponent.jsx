@@ -22,11 +22,18 @@ export default function LoginComponent(){
         const loginSuccess = await authContext.login(email, password)
 
         if(loginSuccess){
-            navigate('/user/mybok')
+            navigate(`/user?username=${email}`)
         }
         else{
             console.log('login fail')
         }
+    }
+
+    function handleLoginKakao(){
+        navigate('/auth/login')
+    }
+    function handleSignUp(){
+        navigate('/auth/register')
     }
 
     return(
@@ -42,16 +49,16 @@ export default function LoginComponent(){
             </div>
             <div>
                 <button className="light-button" type="button" name="login" onClick={handleLogin}>
-                    <p className="button-text">Login</p>
+                <p className="button-text">Login</p>
                 </button>
             </div>
             <div>
-                <button className="light-button">
+                <button className="light-button" type="button" name="kakao-login" onClick={handleLoginKakao}>
                 <p className="button-text">Login with Kakao</p>
                 </button>
             </div>
             <div>
-                <button className="dark-button">
+                <button className="dark-button" type="button" name="signup" onClick={handleSignUp}>
                 <p className="button-text">Signup</p>
                 </button>
             </div>
